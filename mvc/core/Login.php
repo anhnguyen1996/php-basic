@@ -26,6 +26,25 @@ class Login
         }
     }
 
+    public function callLoginView()
+    {
+        require_once('./mvc/views/admin/login/index.php');
+    }
+
+    private function checkToken()
+    {
+        if (isset($_COOKIE['token'])) {
+            $username = '';
+            if (isset($_COOKIE['username'])) {
+                $username = $_COOKIE['username'];
+            }
+            if ($_COOKIE['token'] == $_SESSION['token'][$username]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private function checkExistsUser($username, $password)
     {
         $result = false;
@@ -55,22 +74,8 @@ class Login
     {
         $newToken = $this->getToken(10);
         $_SESSION['token'][$username] = $newToken;
-        setcookie('username', $username, time() + 6000);
-        setcookie('token', $newToken, time() + 6000);
-    }
-
-    private function checkToken()
-    {
-        if (isset($_COOKIE['token'])) {
-            $username = '';
-            if (isset($_COOKIE['username'])) {
-                $username = $_COOKIE['username'];
-            }
-            if ($_COOKIE['token'] == $_SESSION['token'][$username]) {
-                return true;
-            }
-        }
-        return false;
+        setcookie('username', $username, time() + 60000);
+        setcookie('token', $newToken, time() + 60000);
     }
 
     private function getToken($length)
@@ -86,10 +91,5 @@ class Login
         }
 
         return $token;
-    }
-
-    public function callLoginView()
-    {
-        require_once('./mvc/views/admin/login/index.php');
-    }
+    }    
 }

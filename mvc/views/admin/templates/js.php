@@ -21,5 +21,3 @@
 <script src="<?php echo URL; ?>mvc/public/assets/admin/dist/js/pages/dashboard2.js"></script>
 
 <script src="<?php echo URL; ?>mvc/public/assets/admin/ckeditor/ckeditor.js"></script>
-<!-- <script src="<?php echo URL; ?>mvc/public/assets/admin/js/form.js"></script> -->
-<script src="<?php echo URL; ?>mvc/public/assets/admin/js/new-form.js"></script>
