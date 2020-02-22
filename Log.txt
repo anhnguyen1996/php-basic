@@ -1,0 +1,1 @@
+Tam thoi return true checkLogin thanh cong o Admin.php/checkLogin()
