@@ -33,7 +33,7 @@ class Login
 
             $database = new Database();
             $connection = $database->getConnection();
-            $sqlQuery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+            $sqlQuery = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
             $userRecords = mysqli_query($connection, $sqlQuery);
             if ($userRecords->num_rows == 1) {
                 echo 'Login thanh cong<br/>';

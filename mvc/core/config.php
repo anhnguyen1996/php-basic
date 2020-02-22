@@ -15,4 +15,4 @@ define('DEFAULT_URL', [
 define('SERVERNAME_DB', 'localhost');
 define('USERNAME_DB', 'root');
 define('PASSWORD_DB', '');
-define('DATABASE_DEFAULT_DB', 'new');
+define('DATABASE_DEFAULT_DB', 'commerce');
